@@ -25,7 +25,7 @@ jobs:
       - name: Clone main code repository
         uses: actions/checkout@v4
         with:
-          repository: "mozilla-mobile/firefox-ios"
+          repository: "FilippoZazzeroni/firefox-ios"
           path: "code_repo"
       - name: Select Xcode ${{ matrix.xcode }}
         run: |
@@ -76,7 +76,7 @@ jobs:
       - run : git config --global user.email "flodolo@users.noreply.github.com"
       - uses: peter-evans/create-pull-request@v6
         with:
-          token: ${{ secrets.IOS_L10N_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           path: "l10n_repo"
           commit-message: "Extract new strings (${{ env.current_date }})"
           branch: l10n_automation
